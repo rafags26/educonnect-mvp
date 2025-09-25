@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduConnect MVP</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>EduConnect</h1>
+    <nav>
+      <a href="#">Mentorias</a>
+      <a href="#">Grupos</a>
+      <a href="#">Materiais</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="busca">
+      <input type="text" id="filtro" placeholder="Buscar mentoria...">
+      <button onclick="filtrarMentorias()">Filtrar</button>
+    </section>
+
+    <section id="mentorias">
+      <h2>Mentorias Disponíveis</h2>
+      <ul id="listaMentorias"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 EduConnect MVP</p>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
