@@ -20,13 +20,16 @@
   </header>
 
   <main class="container">
+    <!-- Seção de busca -->
     <section id="busca">
-      <input type="text" id="filtro" placeholder="Buscar por título ou mentor">
-      <button onclick="filtrarMentorias()">Filtrar</button>
+      <input type="text" id="campo-busca" placeholder="Digite o nome ou mentor">
+      <button id="btn-filtrar">Filtrar</button>
     </section>
 
-    <section id="mentorias" class="grid">
-      <!-- As mentorias vão ser renderizadas aqui pelo app.js -->
+    <!-- Seção onde os cards das mentorias vão aparecer -->
+    <section>
+      <h2>Mentorias Disponíveis</h2>
+      <div id="mentorias-grid" class="grid"></div>
     </section>
   </main>
 
@@ -34,7 +37,7 @@
     <p>© 2025 EduConnect MVP</p>
   </footer>
 
-  <!-- Link para o JS -->
+  <!-- Importa o JavaScript -->
   <script src="assets/js/app.js"></script>
 </body>
 </html>
