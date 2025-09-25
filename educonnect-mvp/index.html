@@ -2,42 +2,127 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduConnect MVP</title>
-  <!-- Link para o CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduConnect — MVP</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <header>
-    <nav>
+  <header class="topbar">
+    <div class="wrap">
       <h1 class="logo">EduConnect</h1>
-      <ul class="menu">
-        <li><a href="#">Mentorias</a></li>
-        <li><a href="#">Grupos</a></li>
-        <li><a href="#">Materiais</a></li>
-      </ul>
-    </nav>
+      <nav>
+        <ul class="menu">
+          <li><a href="#mentorias" data-tab="tab-mentorias" class="tablink active">Mentorias</a></li>
+          <li><a href="#grupos" data-tab="tab-grupos" class="tablink">Grupos</a></li>
+          <li><a href="#materiais" data-tab="tab-materiais" class="tablink">Materiais</a></li>
+          <li><a href="#perfil" data-tab="tab-perfil" class="tablink">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="auth">
+        <span id="whoami" class="muted"></span>
+        <button id="btnAuth" class="btn">Entrar</button>
+      </div>
+    </div>
   </header>
 
   <main class="container">
-    <!-- Seção de busca -->
-    <section id="busca">
-      <input type="text" id="campo-busca" placeholder="Digite o nome ou mentor">
-      <button id="btn-filtrar">Filtrar</button>
+    <!-- Mentorias -->
+    <section id="tab-mentorias" class="tab visible">
+      <h2>Mentorias</h2>
+
+      <div class="card">
+        <div class="row gap">
+          <input id="buscaMentoria" class="input" placeholder="Buscar por título ou mentor..."/>
+          <button id="btnFiltrarMentoria" class="btn">Filtrar</button>
+          <button id="btnLimparFiltroMentoria" class="btn ghost">Limpar</button>
+        </div>
+      </div>
+
+      <div id="mentoriasGrid" class="grid"></div>
+
+      <h3 class="mt">Minhas mentorias</h3>
+      <div id="minhasMentorias" class="grid"></div>
     </section>
 
-    <!-- Seção onde os cards das mentorias vão aparecer -->
-    <section>
-      <h2>Mentorias Disponíveis</h2>
-      <div id="mentorias-grid" class="grid"></div>
+    <!-- Grupos -->
+    <section id="tab-grupos" class="tab">
+      <h2>Grupos de Estudo</h2>
+
+      <div class="card">
+        <div class="row gap">
+          <input id="novoGrupoNome" class="input" placeholder="Nome do grupo (ex.: Front-end Iniciante)"/>
+          <button id="btnCriarGrupo" class="btn">Criar grupo</button>
+        </div>
+      </div>
+
+      <div id="gruposGrid" class="grid"></div>
+    </section>
+
+    <!-- Materiais -->
+    <section id="tab-materiais" class="tab">
+      <h2>Materiais</h2>
+
+      <div class="card">
+        <div class="row gap">
+          <input id="materialTitulo" class="input" placeholder="Título do material"/>
+          <input id="materialLink" class="input" placeholder="URL (https://...)"/>
+          <input id="materialTags" class="input" placeholder="tags separadas por vírgula (html,css)"/>
+          <button id="btnAdicionarMaterial" class="btn">Adicionar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row gap">
+          <input id="filtroMaterial" class="input" placeholder="Buscar por título/link/tag..."/>
+          <button id="btnFiltrarMaterial" class="btn">Filtrar</button>
+          <button id="btnLimparFiltroMaterial" class="btn ghost">Limpar</button>
+        </div>
+      </div>
+
+      <div id="materiaisGrid" class="grid"></div>
+    </section>
+
+    <!-- Perfil -->
+    <section id="tab-perfil" class="tab">
+      <h2>Meu Perfil</h2>
+
+      <div class="card">
+        <div class="row gap">
+          <input id="perfilNome" class="input" placeholder="Seu nome"/>
+          <input id="perfilEmail" class="input" placeholder="Seu e-mail (único)"/>
+          <select id="perfilTipo" class="input">
+            <option value="aluno">Aluno</option>
+            <option value="mentor">Mentor</option>
+          </select>
+        </div>
+        <div class="row gap mt">
+          <button id="btnSalvarPerfil" class="btn">Salvar perfil</button>
+          <button id="btnSair" class="btn danger ghost">Sair</button>
+        </div>
+      </div>
+
+      <p class="muted mt">No MVP, o login é feito por e-mail (sem senha) e fica salvo no navegador.</p>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 EduConnect MVP</p>
-  </footer>
+  <!-- Dialog simples de Login/Cadastro -->
+  <dialog id="dlgAuth">
+    <form method="dialog" class="dialog">
+      <h3>Entrar / Cadastrar</h3>
+      <input id="authNome" class="input" placeholder="Seu nome"/>
+      <input id="authEmail" class="input" placeholder="Seu e-mail (ex.: user@fae.edu.br)"/>
+      <select id="authTipo" class="input">
+        <option value="aluno">Aluno</option>
+        <option value="mentor">Mentor</option>
+      </select>
+      <div class="row gap mt">
+        <button id="authConfirmar" class="btn">Confirmar</button>
+        <button value="cancel" class="btn ghost">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
 
-  <!-- Importa o JavaScript -->
-  <script src="assets/js/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
+
