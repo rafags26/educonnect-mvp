@@ -35,7 +35,9 @@ O objetivo foi criar o **MVP da plataforma EduConnect**, uma solução digital p
 
 ## ▶️ Como rodar o projeto
 1. Clone este repositório:
+   
    ```bash
+   
       git clone https://github.com/rafags26/educonnect-mvp.git
 
 Abra o arquivo index.html no navegador.
